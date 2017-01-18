@@ -4,7 +4,7 @@ Racer-based [autocomplete-plus][atom-autocomplete] and [hyperclick][atom-hypercl
 markdown-styled documentation.
 
 ## Demo
-![Demonstration](/img/demo.png)
+![Demonstration](https://raw.githubusercontent.com/qzed/autocomplete-racer/master/img/demo.png)
 
 ## Features
 - Includes documentation (can be disabled).
