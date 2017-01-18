@@ -1,6 +1,6 @@
 {
   "name": "autocomplete-racer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Autocomplete-plus and hyperclick provider for rust, using racer as back-end.",
   "main": "./lib/main",
   "license": "MIT",
