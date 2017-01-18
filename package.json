@@ -1,0 +1,26 @@
+{
+    "name": "autocomplete-racer",
+    "version": "0.0.0",
+    "description": "Autocomplete-plus and hyperclick provider for rust, using racer as back-end.",
+    "main": "./lib/main",
+    "license": "MIT",
+    "repository": "https://github.com/qzed/autocomplete-racer",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    },
+    "dependencies": {
+        "selector-kit": "^0.1"
+    },
+    "providedServices": {
+        "autocomplete.provider": {
+            "versions": {
+                "2.0.0": "getAutocompleteProvider"
+            }
+        },
+        "hyperclick.provider": {
+            "versions": {
+                "0.0.0": "getHyperclickProvider"
+            }
+        }
+    }
+}

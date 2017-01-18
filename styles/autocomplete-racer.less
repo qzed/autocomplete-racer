@@ -1,0 +1,68 @@
+@import "ui-variables";
+@import "syntax-variables";
+
+
+atom-text-editor[data-grammar="source rust"], :host {
+    .autocomplete-suggestion-list.select-list.popover-list .suggestion-description-content {
+        // reduce the rather large default font size for markdown headings to a sane level
+        h1 { font-size: 1.2em; }
+        h2 { font-size: 1.1em; }
+        h3 { font-size: 1.0em; }
+
+        // make the enumerations/itemizations more compact
+        ul {
+            list-style-position: outside;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 30px;
+            padding-right: 0;
+
+            li {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .autocomplete-suggestion-list {
+        .make-type-icon(Struct,      @syntax-color-class);
+        .make-type-icon(Module,      @syntax-color-import);
+        .make-type-icon(MatchArm,    @syntax-color-variable);
+        .make-type-icon(Function,    @syntax-color-function);
+        .make-type-icon(Crate,       @syntax-color-import);
+        .make-type-icon(Let,         @syntax-color-variable);
+        .make-type-icon(IfLet,       @syntax-color-variable);
+        .make-type-icon(WhileLet,    @syntax-color-variable);
+        .make-type-icon(For,         @syntax-color-variable);
+        .make-type-icon(StructField, @syntax-color-variable);
+        .make-type-icon(Impl,        @syntax-color-class);
+        .make-type-icon(TraitImpl,   @syntax-color-class);
+        .make-type-icon(Enum,        @syntax-color-class);
+        .make-type-icon(EnumVariant, @syntax-color-class);
+        .make-type-icon(Type,        @syntax-color-class);
+        .make-type-icon(FnArg,       @syntax-color-variable);
+        .make-type-icon(Trait,       @syntax-color-class);
+        .make-type-icon(Const,       @syntax-color-constant);
+        .make-type-icon(Static,      @syntax-color-variable);
+        .make-type-icon(Macro,       @syntax-color-method);
+        .make-type-icon(Builtin,     @syntax-color-keyword);
+    }
+}
+
+
+// copied from https://github.com/atom/autocomplete-plus/blob/master/styles/autocomplete.less
+.make-type-icon(@type, @color) {
+    .icon.@{type} {
+        color: @color;
+        background: fadeout(@color, 80%)
+    }
+}
+.make-type-icon(@type, @color)
+        when (hsvvalue(@color) - hsvvalue(@overlay-background-color) > -20)
+        and (hsvvalue(@color) - hsvvalue(@overlay-background-color) < 20) {
+    .icon.@{type} {
+        @corrected-color: contrast(@overlay-background-color, darken(@color, 30%), lighten(@color, 30%));
+        color: @corrected-color;
+        background: fadeout(@corrected-color, 80%);
+    }
+}
